@@ -1,11 +1,11 @@
 FROM php:8.0-apache
 
-#ARG PORT
-#ENV PORT ${PORT}
+# ARG PORT
+# ENV PORT ${PORT}
 
 ENV COMPOSER_ALLOW_SUPERUSER=1
 
-EXPOSE 80#$PORT
+EXPOSE 80 #$PORT
 WORKDIR /app
 
 # git, unzip & zip are for composer
@@ -24,7 +24,7 @@ RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/app.ini"
 
 # Apache
 COPY config/vhost.conf /etc/apache2/sites-available/000-default.conf
-#RUN sed -i -e "s/0.0.0.0:80/0.0.0.0:$PORT/g" /etc/apache2/sites-available/000-default.conf
+# RUN sed -i -e "s/0.0.0.0:80/0.0.0.0:$PORT/g" /etc/apache2/sites-available/000-default.conf
 COPY config/apache.conf /etc/apache2/conf-available/z-app.conf
 COPY / /app/
 
