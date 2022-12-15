@@ -29,7 +29,7 @@ RUN composer install --optimize-autoloader --no-dev --no-interaction --no-progre
 
 # .env
 RUN cp .env.example .env
-RUN BORSCH_TEMP_KEYGEN=`openssl rand -base64 32`;sed -i \"s/APP_KEY=/APP_KEY=$BORSCH_TEMP_KEYGEN/g\" .env
+RUN BORSCH_TEMP_KEYGEN=`openssl rand -base64 32`; sed -i "s/APP_KEY=/APP_KEY=$BORSCH_TEMP_KEYGEN/g" .env
 
 # Apache
 RUN a2enmod rewrite remoteip && a2enconf z-app
