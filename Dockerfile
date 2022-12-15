@@ -5,7 +5,7 @@ FROM php:8.0-apache
 
 ENV COMPOSER_ALLOW_SUPERUSER=1
 
-EXPOSE 80 #$PORT
+EXPOSE 80
 WORKDIR /app
 
 # git, unzip & zip are for composer
